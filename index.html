@@ -4,21 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glance</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/simple-keyboard/build/css/index.css">
     <link rel="stylesheet" href="styles/style.css">
+    <style>
+        .simple-keyboard .hg-button {
+            color: #ffffff;
+            background-color: #374151;
+            border: 1px solid #4b5563;
+            height: 60px;
+            font-size: 18px; 
+        }
+        .simple-keyboard .hg-button:active {
+            background-color: #4b5563;
+        }
+        
+        .simple-keyboard .hg-row {
+            margin-bottom: 8px;
+        }
+    </style>
 </head>
-<body>
-    <div id = "keyboard">
-        <script src="https://unpkg.com/simple-keyboard/build/index.js"></script>
-        <script>
+
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+    <div class="flex-1 container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-7xl font-bold text-center mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                GLANCE
+            </h1>
+            <h2 class="text-2xl text-center text-gray-300 mb-8">
+                This tool aims to provide a new form of human-computer interaction! Check it out:
+            </h2>
+        </div>
+    </div>
+
+    <div id="results" class="hidden w-full bg-gray-800 p-6 shadow-2xl flex justify-center mb-4">
+        <div class="w-4/5 flex flex-col gap-3">
+            <button class="bg-gray-700 hover:bg-gray-600 text-white text-lg font-medium py-4 px-6 rounded-lg border border-gray-600 transition-colors">
+                Option #1
+            </button>
+            <button class="bg-gray-700 hover:bg-gray-600 text-white text-lg font-medium py-4 px-6 rounded-lg border border-gray-600 transition-colors">
+                Option #2
+            </button>
+            <button class="bg-gray-700 hover:bg-gray-600 text-white text-lg font-medium py-4 px-6 rounded-lg border border-gray-600 transition-colors">
+                Option #3
+            </button>
+            <button class="bg-gray-700 hover:bg-gray-600 text-white text-lg font-medium py-4 px-6 rounded-lg border border-gray-600 transition-colors">
+                Option #4
+            </button>
+            <button class="bg-gray-700 hover:bg-gray-600 text-white text-lg font-medium py-4 px-6 rounded-lg border border-gray-600 transition-colors">
+                Option #5
+            </button>
+        </div>
+    </div>
+
+    <div class="w-full bg-gray-800 p-4 shadow-2xl flex justify-center">
+        <div class="w-4/5 simple-keyboard"></div>
+    </div>
+
+    <script src="https://unpkg.com/simple-keyboard/build/index.js"></script>
+    <script>
         const Keyboard = window.SimpleKeyboard.default;
         const keyboard = new Keyboard({
             onChange: input => console.log("Input changed", input),
             onKeyPress: button => console.log("Button pressed", button)
         });
-        </script>
-    </div>
-
+        
+        // Example: Show the results div (remove this or modify as needed)
+        // document.getElementById('results').classList.remove('hidden');
+    </script>
     <script src="js/webgazer.js"></script>
 </body>
 </html>
